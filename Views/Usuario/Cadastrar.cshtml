@@ -1,0 +1,31 @@
+<html>
+
+    @{
+        ViewBag.Title = "Cadastrar Usuário";
+        Layout = "MasterPageDeslogado";
+    }
+
+    <h1>Formulário de Cadastro de Usuários</h1>
+
+    <form action="/Usuario/Cadastrar" method="Post">
+    
+    <label>
+        Nome<input type="text" name="nomeUsuario" required ="true">
+    </label>
+    <label>
+        Email<input type="text" name="email" required ="true">
+    </label>
+    <label>
+        Senha<input type="text" name="senha" required ="true">
+    </label>
+    <label>
+        Tipo
+        <select name="tipoUsuario">
+            <option value="">Selecione</option>
+            <option value="usuario">Usuário</option>
+            <option value="admin">Admin</option>
+        </select>
+    </label>
+    <button type="submit">Salvar</button>
+    </form>
+</html>
