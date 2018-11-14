@@ -21,16 +21,22 @@ namespace Sistema.Controllers
         [HttpPost]
         public IActionResult Cadastrar(IFormCollection form)
         {
-            TarefasModel tarefas = new TarefasModel();
-            tarefas.ID = 1;
-            tarefas.Nome = form["nomeTarefa"];
-            tarefas.Descricao = form["descricao"];
-            tarefas.IdUsuario = int.Parse(form["id"]);
-            tarefas.Tipo = form["tipoTarefa"];
-            tarefas.DataCriacao = DateTime.Now;
+            TarefasModel tarefaModel = new TarefasModel();
+            if(System.IO.File.Exists("tarefas.csv")){
+                String[] linhas = System.IO.File.ReadAllLines("tarefas.csv");
+                tarefaModel.ID = linhas.Length +1;
+            }
+            else{
+                tarefaModel.ID = 1;
+            }
+            tarefaModel.Nome = form["tarefa"];
+            tarefaModel.Descricao = form["descricao"];
+            tarefaModel.Tipo = form["tipo"];
+            tarefaModel.IdUsuario = HttpContext.Session.GetInt32("idUsuario").Value;
+            tarefaModel.DataCriacao = DateTime.Now;
 
             using (StreamWriter sw = new StreamWriter("tarefas.csv", true)){
-                sw.WriteLine($"{tarefas.ID};{tarefas.Nome};{tarefas.Descricao};{tarefas.IdUsuario};{tarefas.Tipo};{tarefas.DataCriacao}");
+                sw.WriteLine($"{tarefaModel.ID};{tarefaModel.Nome};{tarefaModel.Descricao};{tarefaModel.Tipo};{tarefaModel.IdUsuario};{tarefaModel.DataCriacao}");
             }
             ViewBag.Mensagem = "Tarefa Cadastrada";
             return View();

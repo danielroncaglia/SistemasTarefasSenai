@@ -6,22 +6,19 @@
     }
     <h1>Formulário de cadastro de tarefas</h1>
     @ViewBag.Mensagem
-    <form action="/Tarefa/Cadastrar" method="POST">
+    <form action="/Tarefas" method="POST">
     <label>
-        Nome:
-        <input type="text" name="nomeTarefa"
+        Nome
+        <input type="text" name="tarefa"
         required ="true">
     </label>
     <label>
-        Descrição: <input type="text" name="descricao" required ="true">
+        Descrição <input type="text" name="descricao" required ="true">
     </label>
     <label>
-       ID Usuário: <input type="text" name="id" required ="true">
-    </label>
-    <label>
-        Tipo:
-        <select name="tipoTarefa">
-            <option value="">Selecioe</option>
+        Tipo
+        <select name="tipo">
+            <option value="">Selecione</option>
             <option value="fazer">Fazer</option>
             <option value="fazendo">Fazendo</option>
             <option value="feito">Feito</option>

@@ -62,6 +62,7 @@ namespace Sistema.Controllers
                     if (dados[2] == usuario.Email && dados[3] == usuario.Senha)
                     {
                         HttpContext.Session.SetString("email", usuario.Email);
+                        HttpContext.Session.SetInt32("idUsuario", usuario.ID);
                         return RedirectToAction("Cadastrar", "Tarefas");
                     }
                 }
