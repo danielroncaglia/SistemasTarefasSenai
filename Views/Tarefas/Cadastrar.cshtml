@@ -1,29 +1,134 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt.br">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cadastro de tarefas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<style>
 
-    @{
-        ViewBag.Title ="Cadastro de Transação";
-        Layout = "MasterPageLogado";
-    }
-    <h1>Formulário de cadastro de tarefas</h1>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Lato";
+
+}
+.menu {
+    background-color: yellow;
+    background-position: center;
+    height: 40px;
+    margin: auto;
+}
+.menu ul{
+    text-align: center;
+    list-style-type: none;
+    padding-top: 8px;
+}
+.menu li{
+    display: inline;
+    margin: 0 50px;
+    font-weight: 100;
+    font-size: 25px;
+    color: black;
+}
+#vista{
+    margin: 0 auto;
+    background-color: lightblue;
+    background-size: cover;
+    min-height: 100vh;
+    padding-top: 50px;
+}
+#vista *{
+    display: block;
+    margin: auto;
+}
+#vista h1 {
+    font-size: 60px;
+    color: white;
+    margin: center;
+    margin-left: 400px;
+    margin-right: 400px;
+    background-color: black;
+    text-align: center;
+}
+.botao {
+    font-size: 35px;
+    border-radius: 20px;
+    text-align: center;
+    color:whitesmoke;
+    background-color: red;
+    width: 200px;
+    padding: center;
+    box-shadow: 0px 1px 1px #ccc;
+}
+.botao:focus {
+    font-size: 35px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    width: 200px;
+    box-shadow: 0px 1px 1px #ccc;
+}
+.textoarea {
+    font-family: 'Segoe UI';
+    font-size: 30px;
+    border-radius: 4px;
+    text-align: center;
+    color: white;
+}
+
+.areatexto {
+    width: 350px;
+    height: 250px;
+    font-size: 30px;
+}
+.caixaselecao {
+    font-size: 25px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+}
+</style>
+
+<main class="conteudo">
+    <nav class="menu">
+        <ul>
+            <li> <a href="/Usuario/Cadastrar">Cadastro de Usuário</a></li>
+            <li> <a href="/Usuario/Login">Efetuar Login</a></li>
+        </ul>
+</main>
+
+<bodY>
+<section id="vista">
+    <h1>Cadastro de tarefas</h1>
+    <br>
     @ViewBag.Mensagem
     <form action="/Tarefas" method="POST">
     <label>
-        Nome
-        <input type="text" name="tarefa"
-        required ="true">
+        <input class="textoarea" placeholder="Tarefa" type="text" name="tarefa" required ="true">
+    <br>
+    </label>
+    <label class="textoarea">
+       <input class="areatexto" placeholder="Descrição" type="text" name="descricao" required ="true">
+    <BR>    
     </label>
     <label>
-        Descrição <input type="text" name="descricao" required ="true">
-    </label>
-    <label>
-        Tipo
-        <select name="tipo">
-            <option value="">Selecione</option>
+        <select class="caixaselecao" name="tipo">
+            <option value="Tipo:">Selecione</option>
             <option value="fazer">Fazer</option>
             <option value="fazendo">Fazendo</option>
             <option value="feito">Feito</option>
         </select>
     </label>
-    <button type="submit">Salvar</button>
+    <br>
+    <button class="botao"  type="submit">Salvar</button>
     </form>
+</body>
+<footer>
+        Desenvolvido por Daniel Roncaglia
+</footer>
 </html>

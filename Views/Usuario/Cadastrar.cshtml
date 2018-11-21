@@ -1,31 +1,134 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt.br">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cadastro de Usuários</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
 
-    @{
-        ViewBag.Title = "Cadastrar Usuário";
-        Layout = "MasterPageDeslogado";
-    }
+<style>
 
-    <h1>Formulário de Cadastro de Usuários</h1>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Lato";
 
-    <form action="/Usuario/Cadastrar" method="Post">
+}
+.menu {
+    background-color: yellow;
+    background-position: center;
+    height: 40px;
+    margin: auto;
+}
+.menu ul{
+    text-align: center;
+    list-style-type: none;
+    padding-top: 8px;
+}
+.menu li{
+    display: inline;
+    margin: 0 50px;
+    font-weight: 100;
+    font-size: 25px;
+    color: black;
+}
+#vista{
+    margin: 0 auto;
+    background-color: lightblue;
+    background-size: cover;
+    min-height: 100vh;
+    padding-top: 50px;
+}
+#vista *{
+    display: block;
+    margin: auto;
+}
+#vista h1 {
+    font-size: 60px;
+    color: white;
+    margin: center;
+    margin-left: 400px;
+    margin-right: 400px;
+    background-color: black;
+    text-align: center;
+}
+.botao {
+    font-size: 35px;
+    border-radius: 20px;
+    text-align: center;
+    color:whitesmoke;
+    background-color: red;
+    width: 200px;
+    box-shadow: 0px 1px 1px #ccc;
+}
+.botao:focus {
+    font-size: 35px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    width: 200px;
+    box-shadow: 0px 1px 1px #ccc;
+}
+.textoarea {
+    font-size: 25px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+}
+.caixaselecao {
+    font-size: 25px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+}
+</style>
+
+<main class="conteudo">
+    <nav class="menu">
+        <ul>
+            <li> <a href="/Usuario/Cadastrar">Cadastro de Usuário</a></li>
+            <li> <a href="/Usuario/Login">Efetuar Login</a></li>
+        </ul>
+</main>
+
+<body>
+
+    @ViewBag.Mensagem
     
-    <label>
-        Nome<input type="text" name="nomeUsuario" required ="true">
-    </label>
-    <label>
-        Email<input type="text" name="email" required ="true">
-    </label>
-    <label>
-        Senha<input type="text" name="senha" required ="true">
-    </label>
-    <label>
-        Tipo
-        <select name="tipoUsuario">
-            <option value="">Selecione</option>
-            <option value="usuario">Usuário</option>
-            <option value="admin">Admin</option>
-        </select>
-    </label>
-    <button type="submit">Salvar</button>
+    <section id="vista">
+
+        <h1>Cadastro de Usuários</h1>
+        <br>
+    <form action="/Usuario/Cadastrar" method="Post">
+        <label>
+            <input class="textoarea" type="text" name="nomeUsuario" placeholder="Nome" required ="true">
+        </label>
+        <br>
+        <label>
+           <input class="textoarea" type="email" name="email" placeholder="E-mail" required ="true">
+        </label>
+        <br>        
+        <label>
+            <input class="textoarea" type="password" name="senha" placeholder="Senha" required ="true">
+        </label>
+        <br>        
+        <label>
+                <select class="caixaselecao" name="tipoUsuario" required="true">
+                <option valeu="">Tipo:</option>
+                <option value="usuario">Usuário</option>
+                <option value="admin">Administrador</option>
+                 </select>
+        </label>
+        <br>
+        <button class="botao" type="submit">Salvar</button>
     </form>
+    </section>
+</body>
+<footer>
+        Desenvolvido por Daniel Roncaglia
+</footer>
 </html>

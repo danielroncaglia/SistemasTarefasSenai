@@ -2,8 +2,8 @@ using System;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
 using Sistema.Models;
+using sistemasTarefasSenai.Repositorio;
 
 namespace Sistema.Controllers
 {
@@ -69,6 +69,14 @@ namespace Sistema.Controllers
             }
             ViewBag.Mensagem = "Usuário inválido";
 
+            return View();
+        }
+
+                [HttpGet]
+        public IActionResult Listar()
+        {
+            UsuarioRepositorio rep = new UsuarioRepositorio();
+            ViewData["Usuarios"] = rep.Listar();
             return View();
         }
     }
